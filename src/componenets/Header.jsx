@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
  import { setHeaderDrawwer } from '../features/menueSlice';
  import HeaderDrawer from './ui/HeaderDrawer';
 import { Button } from './components';
-import {useLogout} from '../hooks/useLogout';
+import { useLogout } from  '../hooks/hooks';
  function Header() {
   const currentUser = useSelector((state)=> state.currentUser.user)
   const isOpened = useSelector((state)=> state.menue.headerDrawer)
