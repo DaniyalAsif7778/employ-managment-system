@@ -1,7 +1,6 @@
 import { useSelector ,useDispatch} from "react-redux"
 import { useNavigate } from "react-router";
- import useUserFinder from "./useUserFinder"
-import { setCurrentUser } from "../features/currentUser";
+ import { setCurrentUser } from "../features/currentUser";
  function useLogin(email,password,setPasswordError,setEmailError,role) {
     const navigate = useNavigate();
     const Admins = useSelector((state)=> state.users.Admins)
