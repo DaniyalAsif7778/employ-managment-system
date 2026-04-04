@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { addAdmin, addEmployee } from "../features/user/UserSlice";
-import useValidator from "./useValidator";
+import useValidator from "./useValidator.jsx";
 
 function useSignUp(
   name,

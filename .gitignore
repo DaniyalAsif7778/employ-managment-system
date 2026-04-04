@@ -27,3 +27,4 @@ dist-ssr
 
 # VS Code Configuration
 **/.vscode/
+dist/

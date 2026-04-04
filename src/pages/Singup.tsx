@@ -1,14 +1,14 @@
 
-import React, { useEffect, useState } from "react";
-import useSingUp from "../hooks/useSingUp";
-import { Button, Input } from "../componenets/components";
+import React, { useEffect, useState, type ReactElement } from "react";
+import useSingUp from "../hooks/useSingUp.jsx";
+import { Button, Input } from "../componenets/components.ts";
 import { useRef } from "react";
-function Signup() {
-  const nameRef = useRef()
-  const passwordRef = useRef()
-  const emailRef = useRef()
-  const adminRef = useRef()
-  const employeeRef = useRef()
+const Signup:React.FC = function () {
+  const nameRef = useRef("")
+  const passwordRef = useRef("")
+  const emailRef = useRef("")
+  const adminRef = useRef("")
+  const employeeRef = useRef("")
 
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
@@ -40,15 +40,15 @@ function Signup() {
   );
   const isDisabled = !name || !email || !password || !role;
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-[var(--color-bg)]">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-bg">
 
-      <div className="w-full max-w-md bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl shadow-xl p-8">
+      <div className="w-full max-w-md bg-surface  border border-border  rounded-xl shadow-xl p-8">
 
-        <h2 className="text-3xl font-semibold mb-2 text-[var(--color-text-primary)]">
+        <h2 className="text-3xl font-semibold mb-2 text-text-primary ">
           Create Account
         </h2>
 
-        <p className="text-sm mb-6 text-[var(--color-text-secondary)]">
+        <p className="text-sm mb-6 text-text-secondary ">
           Register for the employee management system
         </p>
 
@@ -82,8 +82,8 @@ function Signup() {
               type="text"
               placeholder="Enter name"
               value={name}
-              onchange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-[var(--color-navbar)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)]"
+              onchange={(e:React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-navbar  border border-border  text-text-primary  focus:outline-none focus:border-primary "
             />
             {/* <input
               type="text"
@@ -107,8 +107,8 @@ function Signup() {
               error={passwordError}
               placeholder="Enter password"
               value={password}
-              onchange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-[var(--color-navbar)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)]"
+              onchange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-navbar border border-border  text-text-primary  focus:outline-none focus:border-primary "
             />
             {/* <input
               type="password"
@@ -138,8 +138,8 @@ function Signup() {
               error={emailError}
               placeholder="Enter email"
               value={email}
-              onchange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-[var(--color-navbar)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)]"
+              onchange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-navbar border border-border tex-text-primary focus:outline-none focus:border-primary "
             />
             {/* <input
               type="email"
@@ -158,13 +158,13 @@ function Signup() {
 
           {/* Role */}
           <div className="space-y-2">
-            <label className="text-sm text-[var(--color-text-secondary)]">
+            <label className="text-sm text-text-secondary">
               Role :
             </label>
 
             <div className="flex gap-6   py-2">
 
-              <div className="flex flex-row-reverse items-center  justify-center gap-2 cursor-pointer text-[var(--color-text-primary)]">
+              <div className="flex flex-row-reverse items-center  justify-center gap-2 cursor-pointer text-text-primary">
                 <Input
                   labelClassName={" "}
                   label="Admin"
@@ -173,13 +173,13 @@ function Signup() {
                   name="role"
                   value="Admin"
                   checked={role === "Admin"}
-                  onchange={(e) => setRole(e.target.value)}
-                  className="accent-[var(--color-primary)]"
+                  onchange={(e:React.ChangeEvent<HTMLInputElement>) => setRole(e.target.value)}
+                  className="accent-primary"
                 />
 
               </div>
 
-              <div   className="flex  flex-row-reverse justify-center  items-center gap-2 cursor-pointer text-[var(--color-text-primary)]">
+              <div   className="flex  flex-row-reverse justify-center  items-center gap-2 cursor-pointer text-text-primary">
                 <Input
 
                   label="Employee"
@@ -188,8 +188,8 @@ function Signup() {
                   name="role"
                   value="Employee"
                   checked={role === "Employee"}
-                  onchange={(e) => setRole(e.target.value)}
-                  className="accent-[var(--color-primary)] "
+                  onchange={(e:React.ChangeEvent<HTMLInputElement>) => setRole(e.target.value)}
+                  className="accent-primary "
                 />
 
               </div>
@@ -204,9 +204,9 @@ function Signup() {
             text="SingUp"
             className={`
               w-full py-2.5 rounded-md font-medium transition
-              bg-[var(--color-primary)] text-white
+              bg-primary text-white
               
-              ${isDisabled ? "opacity-50 cursor-not-allowed hover:bg-[var(--color-primary-hover)]" : ""}
+              ${isDisabled ? "opacity-50 cursor-not-allowed hover:bg-primary-hover" : ""}
             `} />
         </form>
       </div>

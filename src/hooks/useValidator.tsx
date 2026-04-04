@@ -1,17 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import type  { RootState } from "../store/store.js";
+import type { Admin } from "../features/adminSlice.js";
+export default function useValidator(debounceEmail:string, debouncePassword:string, role:string) {
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [idValidator, setIdValidator] = useState<boolean>(false); // reserved for future use
+  const [emailTaken, setEmailTaken] = useState<boolean>(false);
+  const [passwordTaken, setPasswordTaken] = useState<boolean>(false);
+  const [employerId, setEmployerId] = useState<null | string>(null);
 
-export default function useValidator(debounceEmail, debouncePassword, role) {
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [idValidator, setIdValidator] = useState(false); // reserved for future use
-  const [emailTaken, setEmailTaken] = useState(false);
-  const [passwordTaken, setPasswordTaken] = useState(false);
-  const [employerId, setEmployerId] = useState(null);
-
-  const Admins = useSelector((state) => state.users.Admins || []);
-  const Employees = useSelector((state) => state.users.Employees || []);
+  const Admins = useSelector((state:RootState) => state.admins<Admin> || []);
+  const Employees = useSelector((state:RootState) => state.employees || []);
 
   useEffect(() => {
     // 1️⃣ Validate email & password formats
@@ -23,16 +24,16 @@ export default function useValidator(debounceEmail, debouncePassword, role) {
 
     // 2️⃣ Role-specific checks
     if (role === "Admin") {
-      setEmailTaken(Admins.some((admin) => admin.Email === debounceEmail));
+      setEmailTaken(Admins.some((admin) => admin.email === debounceEmail));
       setPasswordTaken(Admins.some((admin) => admin.password === debouncePassword));
       setEmployerId(null);
     }
 
     if (role === "Employee") {
       // Check if admin exists for the given email
-      const admin = Admins.find((a) => a.Email === debounceEmail);
+      const admin = Admins.find((a) => a.email === debounceEmail);
       if (admin) {
-        setEmployerId(admin.EmployerID);
+        setEmployerId(admin.employerID);
         setEmailTaken(true); // email corresponds to an existing admin
       } else {
         setEmployerId(null);
