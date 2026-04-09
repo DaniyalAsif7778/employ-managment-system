@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-  import { Header,Footer } from "./imports";
+import { Header,Footer } from "./import.js";
   import { Outlet } from "react-router";
   import  './index.css'
 function Layout() {

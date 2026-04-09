@@ -11,4 +11,4 @@ import React from 'react'
     )
 }
 
-export default WorkingButtons
+export default WorkingButtons;

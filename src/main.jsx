@@ -9,8 +9,8 @@ import Layout from "./Layout";
 import { ProtectedRoutes, AdminRoutes, EmployeeRoutes } from "./ProtectedRoutes.jsx";
 import {
   OverView,
-  EmpolyDashBoard,
-  AdminDashbord,
+  EmpolyDashboard,
+  AdminDashboard,
   DashBoard,
   Home,
   Login,
@@ -23,11 +23,11 @@ import {
   AdminTasks,
   Annoucments,
   Colleagues,
-  EmployeeLeave,
-  EmployeeSchedule,
-  EmployeeTasks,
+  Leave,
+  Schedule,
+  Tasks,
   Singup
-} from "./imports.js";
+} from "./import.js";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
           <Route index element={<OverView />} />
 
           <Route element={<AdminRoutes />}>
-            <Route path="AdminDashbord" element={<AdminDashbord />} />
+            <Route path="AdminDashbord" element={<AdminDashboard />} />
             <Route path="AdminDepartment" element={<AdminDepartment />} />
             <Route path="AdminEmployees" element={<AdminEmployees />} />
             <Route path="AdminProfile" element={<AdminProfile />} />
@@ -58,13 +58,13 @@ const router = createBrowserRouter(
           </Route>
           <Route element={<EmployeeRoutes />}>
 
-            <Route path="employedashboard" element={<EmpolyDashBoard />} />
+            <Route path="employedashboard" element={<EmpolyDashboard />} />
 
             <Route path="Annoucments" element={<Annoucments />} />
             <Route path="Colleagues" element={<Colleagues />} />
-            <Route path="EmployeeLeave" element={<EmployeeLeave />} />
-            <Route path="EmployeeSchedule" element={<EmployeeSchedule />} />
-            <Route path="EmployeeTasks" element={<EmployeeTasks />} />
+            <Route path="EmployeeLeave" element={<Leave />} />
+            <Route path="EmployeeSchedule" element={<Schedule />} />
+            <Route path="EmployeeTasks" element={<Tasks />} />
           </Route>
           <Route path="settings" element={<Settings />} />
 

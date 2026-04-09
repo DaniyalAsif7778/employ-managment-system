@@ -2,8 +2,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import type  { RootState } from "../store/store.js";
-import type { Admin } from "../features/adminSlice.js";
-export default function useValidator(debounceEmail:string, debouncePassword:string, role:string) {
+ export default function useValidator(debounceEmail:string, debouncePassword:string, role:string) {
   const [emailValid, setEmailValid] = useState<boolean>(false);
   const [passwordValid, setPasswordValid] = useState<boolean>(false);
   const [idValidator, setIdValidator] = useState<boolean>(false); // reserved for future use
@@ -11,7 +10,7 @@ export default function useValidator(debounceEmail:string, debouncePassword:stri
   const [passwordTaken, setPasswordTaken] = useState<boolean>(false);
   const [employerId, setEmployerId] = useState<null | string>(null);
 
-  const Admins = useSelector((state:RootState) => state.admins<Admin> || []);
+  const Admins = useSelector((state:RootState) => state.admins || []);
   const Employees = useSelector((state:RootState) => state.employees || []);
 
   useEffect(() => {
@@ -33,13 +32,14 @@ export default function useValidator(debounceEmail:string, debouncePassword:stri
       // Check if admin exists for the given email
       const admin = Admins.find((a) => a.email === debounceEmail);
       if (admin) {
-        setEmployerId(admin.employerID);
+        setEmployerId(admin.employerId);
         setEmailTaken(true); // email corresponds to an existing admin
       } else {
         setEmployerId(null);
         setEmailTaken(false); // invalid admin email
       }
-      setPasswordTaken(Employees.some((emp) => emp.password === debouncePassword));
+      const passwordCheck = Employees.some((emp):boolean => emp.password === debouncePassword)
+      setPasswordTaken(passwordCheck);
     }
   }, [debounceEmail, debouncePassword, role  ]);
 

@@ -8,4 +8,4 @@ function FailedButton() {
   )
 }
 
-export default FailedButton
+export default FailedButton;

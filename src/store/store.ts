@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
  
-//  import currentUserReducer from '../features/currentUser.js';
+ import currentUserReducer from '../features/currentUser.js';
 import menueReducer from '../features/menueSlice.js';
 import adminsReducer from '../features/adminSlice.js'
 import employeesReducer from '../features/employeeSlice.js'
@@ -12,7 +12,7 @@ import authReducer from '../features/authSlice.js'
        employees: employeesReducer,
        tasks: tasksReducer,
        auth: authReducer,
-      //  currentUser:currentUserReducer,
+       currentUser:currentUserReducer,
        menue:menueReducer,
     },
 })

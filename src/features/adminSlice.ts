@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface admin {
   id: string;
+  password:string;
   employerId: string; // e.g., "EMP001"
   firstName: string;
   lastName: string;
@@ -50,9 +51,9 @@ export interface EmergencyContact {
   phone: string;
   email?: string;
 }
-export type Admin = admin | null;
+export type Admin = admin[] 
 
-const initialState: Admin = null;
+const initialState: Admin = [];
 
 const adminsSlice = createSlice({
   name: "admins",

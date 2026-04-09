@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { setCurrentUser } from "../features/currentUser";
+import { setCurrentUser } from "../features/currentUser.js";
  
 function useUserFinder(id) {
   const users = useSelector((state) => state.users.Admins);

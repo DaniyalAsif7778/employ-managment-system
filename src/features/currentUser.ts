@@ -1,48 +1,47 @@
-// import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-// import type { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+export  interface user {
+    id: number,
+    name: string,
+    role: "admin" | "employee",
+    email: string,
+    department: string,
+    loginStatus: boolean,
 
-// interface user {
-//     id: number,
-//     name: string,
-//     role: "admin" | "employee",
-//     email: string,
-//     department: string,
-//     loginStatus: boolean,
+}
 
-// }
+export interface Admin extends user {
+    role: "admin",
+    adminId: string
+}
+export interface Employee extends user {
+    role: "employee",
+    employerId: string
+}
+export type currentUser = Admin | Employee |  null;
 
-// interface Admin extends user {
-//     role: "admin",
-//     adminId: string
-// }
-// interface Employee extends user {
-//     role: "employee",
-//     employerId: string
-// }
-// type currentUser = Admin | Employee |  null;
+console.log();
 
-// console.log();
+let initialState: currentUser;
 
-// const initialState: currentUser =  null;
-
-// const currentUserSlice = createSlice(
-//     {
-//         name: "currentUser",
-//         initialState: null as currentUser ,
-//         reducers: {
-//             setCurrentUser: (state, action: PayloadAction<Admin | Employee>):currentUser => {
+const currentUserSlice = createSlice(
+    {
+        name: "currentUser",
+        initialState:null as currentUser ,
+        reducers: {
+            setCurrentUser: (state, action: PayloadAction<Admin | Employee>):currentUser => {
                  
                     
-//                     return action.payload;  
+                    return action.payload;  
                   
             
-//             }
+            }
 
-//         }
-//     }
-// )
+        }
+    }
+)
 
-// export const { setCurrentUser } = currentUserSlice.actions;
+export const { setCurrentUser } = currentUserSlice.actions;
 
-// export default currentUserSlice.reducer;
+export default currentUserSlice.reducer;

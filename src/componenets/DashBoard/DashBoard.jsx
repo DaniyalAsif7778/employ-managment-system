@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router'
- import DashBordHeader from '../ui/DashBordHeader'
+ import DashBordHeader from '../ui/DashBordHeader.jsx'
  
 function DashBoard() {
   return (
@@ -11,4 +11,4 @@ function DashBoard() {
   )
 }
 
-export default DashBoard
+export default DashBoard;

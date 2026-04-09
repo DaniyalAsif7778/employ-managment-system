@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminDashbord from '../../pages/admin/AdminDashboard'
-import EmpolyDashBoard from '../../pages/employee/EmpolyDashboard'
+import AdminDashbord from '../../pages/admin/AdminDashboard.jsx'
+import EmpolyDashBoard from '../../pages/employee/EmpolyDashboard.jsx'
 import { useSelector } from 'react-redux'
  function OverView() {
   const currentUser = useSelector((state)=> state.currentUser.user)
@@ -14,4 +14,4 @@ import { useSelector } from 'react-redux'
   )
 }
 
-export default OverView
+export default OverView;

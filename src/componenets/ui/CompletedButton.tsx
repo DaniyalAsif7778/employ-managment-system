@@ -8,4 +8,4 @@ function CompletedButton() {
   )
 }
 
-export default CompletedButton
+export default CompletedButton;
