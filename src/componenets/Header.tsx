@@ -1,13 +1,16 @@
 import React, {  useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
   import { useSelector ,useDispatch } from 'react-redux';
- import   type { setHeaderDrawwer } from '../features/menueSlice ';
- import   HeaderDrawer from './ui/HeaderDrawer ';
-import type { Button } from './components';
- import { useLogout } from  '../hooks/hooks';
+ import { setHeaderDrawwer } from '../features/menueSlice.js';
+ 
+ import HeaderDrawer from './components.js'
+ import { Button } from './components.js';
+ import { useLogout } from '../hooks/hooks.js';
+import type { RootState } from '../store/store.js';
  const Header:React.FC=()=> {
-  const currentUser = useSelector((state)=> state.currentUser.user)
-  const isOpened = useSelector((state)=> state.menue.headerDrawer)
+  const isOpened = useSelector((state:RootState)=> state.menue.headerDrawer)
+  const currentUser = useSelector((state:RootState)=> state.currentUser)
+  // const isOpened = useSelector((state:RootState)=> state.menue.headerDrawer)
    const [status ,setStatus] =useState(true)
   const dispatch = useDispatch()
  const {logOutHandler}= useLogout()

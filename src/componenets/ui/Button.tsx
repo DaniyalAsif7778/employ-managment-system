@@ -12,4 +12,4 @@ function Button({  text,className , type, link ,loading=false,disabled=false , o
   )
 }
 
-export default Button
+export default Button;

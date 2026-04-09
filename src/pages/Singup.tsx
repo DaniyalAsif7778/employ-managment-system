@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, type ReactElement } from "react";
-import useSingUp from "../hooks/useSingUp.jsx";
-import { Button, Input } from "../componenets/components.ts";
+import useSignUp from "../hooks/useSingUp.js";
+import { Button, Input } from "../componenets/components.js";
 import { useRef } from "react";
 const Signup:React.FC = function () {
   const nameRef = useRef("")
@@ -10,16 +10,16 @@ const Signup:React.FC = function () {
   const adminRef = useRef("")
   const employeeRef = useRef("")
 
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState<string>("");
+  const [role, setRole] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
 
-  const [debounceEmail, setDebounceEmail] = useState("");
-  const [debouncePassword, setDebouncePassword] = useState("");
+  const [debounceEmail, setDebounceEmail] = useState<string>("");
+  const [debouncePassword, setDebouncePassword] = useState<string>("");
 
   useEffect(() => {
     const handler = setTimeout(() => {

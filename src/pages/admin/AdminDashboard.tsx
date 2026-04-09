@@ -1,7 +1,7 @@
 import React from 'react'
-import { AdminForm ,  EmployeesList} from '../../imports'
+import { AdminForm ,  EmployeesList} from '../../import.js'
   import {  useSelector } from 'react-redux'
-function AdminDashbord() {
+function AdminDashboard() {
  
  const currentUser =  useSelector((state)=> state.currentUser.user)
  console.log(currentUser);
@@ -20,4 +20,4 @@ function AdminDashbord() {
   )
 }
 
-export default AdminDashbord
+export default AdminDashboard;

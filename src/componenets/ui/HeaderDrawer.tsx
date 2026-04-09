@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch  } from 'react-redux'
-import {  setDashBoardStatus } from '../../features/menueSlice'
+import {  setDashBoardStatus } from '../../features/menueSlice.js'
 function HeaderDrawer({ status1  }) {
     
     const dispatch = useDispatch()
@@ -30,4 +30,4 @@ function HeaderDrawer({ status1  }) {
   )
 }
 
-export default HeaderDrawer
+export default HeaderDrawer;
